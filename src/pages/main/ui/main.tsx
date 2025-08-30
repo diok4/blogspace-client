@@ -1,10 +1,8 @@
 import type { FC } from "react";
-import styles from "./main.module.css";
+// import styles from "./main.module.css";
+import { RegisterPage } from "@/pages/auth/register";
+import { LoginPage } from "@/pages/auth/login";
 
 export const MainPage: FC = () => {
-  return (
-    <div>
-      <h1>MainPage</h1>
-    </div>
-  );
+  return <div></div>;
 };
