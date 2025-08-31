@@ -1,7 +1,7 @@
 import { useState, type FC } from "react";
 import styles from "./register.module.css";
 import { Input } from "@/shared/ui/input";
-import { Link } from "react-router";
+
 
 export const RegisterPage: FC = () => {
   const [firstName, setFirstName] = useState("");
@@ -18,13 +18,6 @@ export const RegisterPage: FC = () => {
       <div className={styles.subTitle}>
         <p>Create a new account</p>
       </div>
-<<<<<<< HEAD
-=======
-      <div className={styles.changeForm}>
-        <Link to="/auth/login">Sign In</Link>
-        <Link to="/auth/register">Sign Up</Link>
-      </div>
->>>>>>> master
       <div className={styles.form}>
         <div className={styles.name}>
           <Input
