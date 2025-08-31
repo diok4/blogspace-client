@@ -14,6 +14,13 @@ export const LoginPage: FC = () => {
       <div className={styles.subTitle}>
         <p>Sign in to your account</p>
       </div>
+<<<<<<< HEAD
+=======
+      <div className={styles.changeForm}>
+        <Link to="/auth/login">Sign In</Link>
+        <Link to="/auth/register">Sign Up</Link>
+      </div>
+>>>>>>> master
       <div className={styles.form}>
         <div className={styles.email}>
           <Input
