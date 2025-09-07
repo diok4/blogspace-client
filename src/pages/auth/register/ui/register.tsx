@@ -1,17 +1,30 @@
 import { useState, type FC } from "react";
 import styles from "./register.module.css";
 import { Input } from "@/shared/ui/input";
-
+import { authSchema } from "@/shared/lib/validation/authScheme";
 
 export const RegisterPage: FC = () => {
-  const [firstName, setFirstName] = useState("");
-  const [secondName, setSecondName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await authSchema.validate(formData);
+    setErrors({});
+  };
 
   return (
-    <div className={styles.container}>
+    <form className={styles.container} onSubmit={handleSubmit}>
       <div className={styles.title}>
         <p>DevNote AI </p>
       </div>
@@ -19,46 +32,43 @@ export const RegisterPage: FC = () => {
         <p>Create a new account</p>
       </div>
       <div className={styles.form}>
-        <div className={styles.name}>
+        <div className={styles.username}>
           <Input
             type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            name="firstname"
-            placeholder="First Name"
+            value={formData.username}
+            onChange={handleChange}
+            name="username"
+            placeholder="Username"
           />
-          <Input
-            type="text"
-            value={secondName}
-            onChange={(e) => setSecondName(e.target.value)}
-            name="secondname"
-            placeholder="Second Name"
-          />
+          <p>{errors.username}</p>
         </div>
         <div className={styles.email}>
           <Input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            onChange={handleChange}
             name="email"
             placeholder="Email"
           />
+          <p>{errors.email}</p>
         </div>
         <div className={styles.password}>
           <Input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={handleChange}
             name="password"
             placeholder="Password"
           />
+          <p>{errors.password}</p>
           <Input
             type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={formData.confirmPassword}
+            onChange={handleChange}
             name="confirmpassword"
             placeholder="Confirm Password"
           />
+          <p>{errors.confirmPassword}</p>
         </div>
         <div className={styles.button}>
           <button>Create Account</button>
@@ -69,6 +79,6 @@ export const RegisterPage: FC = () => {
           </p>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
