@@ -1,4 +1,4 @@
-import { AuthToggleLinks } from "@/features/auth/form-toggle-links";
+import { AuthToggleLinks } from "@/shared/ui/auth-toggle";
 import type { FC } from "react";
 import { Outlet } from "react-router";
 //import styles from './AuthLayout.module.css'
