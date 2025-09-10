@@ -1,8 +1,17 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+interface IUser {
+  id: string;
+  username: string;
+  email: string;
+}
+
 export const authApi = createApi({
   reducerPath: "authApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/auth/" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "http://localhost:5000/api/auth/",
+    credentials: "include",
+  }),
   endpoints: (build) => ({
     register: build.mutation({
       query: (body) => ({
@@ -24,8 +33,12 @@ export const authApi = createApi({
         method: "POST",
       }),
     }),
-    me: build.query({
-      query: () => "users/me",
+    me: build.mutation<IUser, void>({
+      query: (body) => ({
+        url: "is-auth",
+        method: "POST",
+        body,
+      }),
     }),
   }),
 });
@@ -34,5 +47,5 @@ export const {
   useRegisterMutation,
   useLoginMutation,
   useLogoutMutation,
-  useMeQuery,
+  useMeMutation,
 } = authApi;
