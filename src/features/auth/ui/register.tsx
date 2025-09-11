@@ -3,6 +3,7 @@ import { Input } from "@/shared/ui/input";
 import { useState, type FC } from "react";
 import { registerSchema } from "@/shared/lib/validation";
 import { useRegisterMutation } from "../api/authApi";
+import { AuthToggleLinks } from "@/shared/ui/auth-toggle";
 
 export const RegisterForm: FC = () => {
   const [formData, setFormData] = useState({
@@ -34,48 +35,55 @@ export const RegisterForm: FC = () => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      <div className={styles.title}>
-        <p>DevNote AI </p>
+      <div className={styles.toggle}>
+        <AuthToggleLinks />
       </div>
-      <div className={styles.subTitle}>
-        <p>Create a new account</p>
+      <div className={styles.texts}>
+        <p className={styles.title}>Join Us</p>
+        <p className={styles.subTitle}>
+          Enter your details to create your account
+        </p>
       </div>
       <div className={styles.form}>
         <div className={styles.username}>
+          <label htmlFor="username">Username</label>
           <Input
             type="text"
             value={formData.username}
             onChange={handleChange}
             name="username"
-            placeholder="Username"
+            placeholder="Enter your username"
           />
           {/* <p>{errors.username}</p> */}
         </div>
         <div className={styles.email}>
+          <label htmlFor="email">Email</label>
           <Input
             type="email"
             value={formData.email}
             onChange={handleChange}
             name="email"
-            placeholder="Email"
+            placeholder="Enter your email"
           />
           {/* <p>{errors.email}</p> */}
         </div>
         <div className={styles.password}>
+          <label htmlFor="password">Password</label>
           <Input
             type="password"
             value={formData.password}
             onChange={handleChange}
             name="password"
-            placeholder="Password"
+            placeholder="Enter your password"
           />
           {/* <p>{errors.password}</p> */}
+          <label htmlFor="confirmPassword">Confirm Password</label>
           <Input
             type="password"
             value={formData.confirmPassword}
             onChange={handleChange}
             name="confirmPassword"
-            placeholder="Confirm Password"
+            placeholder="Confirm your password"
           />
           {/* <p>{errors.confirmPassword}</p> */}
         </div>
@@ -86,7 +94,8 @@ export const RegisterForm: FC = () => {
 
         <div className={styles.agreement}>
           <p>
-            By signing up, you agree to our Terms of Service and Privacy Policy
+            By signing up, you agree to our Terms of Service and
+            <span> Privacy Policy</span>
           </p>
         </div>
       </div>

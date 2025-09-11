@@ -1,15 +1,15 @@
 import type { FC } from "react";
 import { NavLink } from "react-router";
-//import styles from './AuthToggleLinks.module.css'
+import styles from "./index.module.css";
 
 export const AuthToggleLinks: FC = () => {
   return (
-    <div>
+    <div className={styles.container}>
       {/* <div className={styles.changeForm}> */}
       <NavLink
         to="/auth/login"
-        style={({ isActive }) => {
-          return { color: isActive ? "green" : "red" };
+        className={({ isActive }) => {
+          return isActive ? styles.isActive : undefined;
         }}
       >
         Sign In
@@ -17,8 +17,8 @@ export const AuthToggleLinks: FC = () => {
 
       <NavLink
         to="/auth/register"
-        style={({ isActive }) => {
-          return { color: isActive ? "green" : "red" };
+        className={({ isActive }) => {
+          return isActive ? styles.isActive : undefined;
         }}
       >
         Sign Up
