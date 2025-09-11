@@ -4,6 +4,7 @@
   border: 2px solid rgba(245, 245, 245, 0.091);
   border-radius: 10px;
   width: 400px;
+  /* height: 520px; */
 }
 
 .texts {
@@ -25,6 +26,10 @@ label {
   display: flex;
   font-weight: 500;
   font-size: 14px;
+}
+
+.form {
+  height: 400px;
 }
 
 .form input {

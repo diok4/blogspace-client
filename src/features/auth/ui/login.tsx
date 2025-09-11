@@ -4,6 +4,7 @@ import { useState, type FC } from "react";
 import { loginSchema } from "@/shared/lib/validation";
 import { useLoginMutation } from "../api/authApi";
 import { useNavigate } from "react-router";
+import { AuthToggleLinks } from "@/shared/ui/auth-toggle";
 
 export const LoginForm: FC = () => {
   const [formData, setFormData] = useState({
@@ -38,36 +39,48 @@ export const LoginForm: FC = () => {
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       {isSuccess && <p style={{ color: "green" }}>✅ Успешный вход!</p>}
-      <div className={styles.title}>
-        <p>DevNote AI </p>
+      <div className={styles.toggle}>
+        <AuthToggleLinks />
       </div>
-      <div className={styles.subTitle}>
-        <p>Create a new account</p>
+      <div className={styles.texts}>
+        <p className={styles.title}>Join Us</p>
+        <p className={styles.subTitle}>
+          Enter your details to create your account
+        </p>
       </div>
       <div className={styles.form}>
         <div className={styles.email}>
+          <label htmlFor="email">Email</label>
           <Input
             type="email"
             value={formData.email}
             onChange={handleChange}
             name="email"
-            placeholder="Email"
+            placeholder="Enter your email"
           />
           {/* <p>{errors.email}</p> */}
         </div>
         <div className={styles.password}>
+          <label htmlFor="password">Password</label>
           <Input
             type="password"
             value={formData.password}
             onChange={handleChange}
             name="password"
-            placeholder="Password"
+            placeholder="Enter your password"
           />
           {/* <p>{errors.password}</p> */}
         </div>
         <div className={styles.button}>
-          <button>Sign In</button>
+          <button>Create Account</button>
           {/* {errors && <p style={{ color: "red" }}>{errors.message}</p>} */}
+        </div>
+
+        <div className={styles.agreement}>
+          <p>
+            By signing up, you agree to our Terms of Service and
+            <span> Privacy Policy</span>
+          </p>
         </div>
       </div>
     </form>
