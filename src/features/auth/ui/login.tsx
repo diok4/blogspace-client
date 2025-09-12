@@ -43,9 +43,9 @@ export const LoginForm: FC = () => {
         <AuthToggleLinks />
       </div>
       <div className={styles.texts}>
-        <p className={styles.title}>Join Us</p>
+        <p className={styles.title}>Welcome Back</p>
         <p className={styles.subTitle}>
-          Enter your details to create your account
+          Enter your details to access your account
         </p>
       </div>
       <div className={styles.form}>

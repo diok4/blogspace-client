@@ -5,9 +5,9 @@ import styles from "./login.module.css";
 export const LoginPage: FC = () => {
   return (
     <>
-      <div className={styles.title}>
+      {/* <div className={styles.title}>
         <p>Come Back to DevNote AI</p>
-      </div>
+      </div> */}
       <div className={styles.container}>
         <LoginForm />
       </div>
