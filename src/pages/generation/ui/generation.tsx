@@ -1,7 +1,7 @@
 import type { FC } from "react";
-import styles from "./aigeneration.module.css";
+import styles from "./generation.module.css";
 
-export const AiGenerationPage: FC = () => {
+export const GenerationPage: FC = () => {
   return (
     <div>
       <h1>GenerationPage</h1>

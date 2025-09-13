@@ -1,1 +1,1 @@
-export { AiGenerationPage } from "./ui/aigeneration";
+export { GenerationPage } from "./ui/generation";
