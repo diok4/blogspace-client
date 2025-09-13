@@ -3,7 +3,7 @@ import { UserProfile } from "@/features/user/ui/user";
 import type { FC } from "react";
 // import styles from "./main.module.css";
 
-export const MainPage: FC = () => {
+export const HomePage: FC = () => {
   return (
     <div>
       <GetMe />
