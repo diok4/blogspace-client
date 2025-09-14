@@ -21,21 +21,21 @@ export const HomePage: FC = () => {
         </div>
         <div className={styles.headerTitle}>
           <p>
-            Build Smarter with <span>DevNote AI</span>
+            Share Your Story with <span>BlogSpace AI</span>
           </p>
         </div>
         <div className={styles.subtitle}>
           <p>
-            The intelligent development platform that helps you code, document,
-            and collaborate more efficiently than ever before.
+            The intelligent social platform that helps you create, share, and
+            discover amazing content from a community of passionate creators.
           </p>
         </div>
         <div className={styles.buttons}>
           <span>
-            <NavLink to="/generation"> Start Generating</NavLink>
+            <NavLink to="/generation"> Start posting</NavLink>
             <FaLongArrowAltRight />
           </span>
-          <p>Explore Features</p>
+          <p>Explore Posts</p>
         </div>
       </div>
       <div className={styles.data}>
@@ -58,7 +58,7 @@ export const HomePage: FC = () => {
             <p>50K+</p>
           </div>
           <div className={styles.dataSubtitle}>
-            <p>Projects Created</p>
+            <p>Posts Created</p>
           </div>
         </div>
         <div>
@@ -69,95 +69,87 @@ export const HomePage: FC = () => {
             <p>1M+</p>
           </div>
           <div className={styles.dataSubtitle}>
-            <p>Code Generated</p>
+            <p>Stories Shared</p>
           </div>
         </div>
       </div>
       <div className={styles.features}>
         <div className={styles.title}>
-          <p>Powerful Features for Modern Development</p>
+          <p>Powerful Features for Modern Creators</p>
         </div>
         <div className={styles.subtitle}>
           <p>
-            Everything you need to accelerate your development workflow and
-            build better software faster.
+            Everything you need to create amazing content, connect with your
+            audience, and grow your creative community.
           </p>
         </div>
         <div className={styles.featuresSections}>
           <div className={styles.feature}>
-            <div>
-              <span>
-                <LuBrain />
-              </span>
-              <span>AI-Powered Generation</span>
-            </div>
-            <div>
+            <span>
+              <LuBrain style={{ color: "#6b99df" }} />
+              AI-Powered Creation
+            </span>
+            <span>
               <p>
-                Generate code, documentation, and project structures with
-                advanced AI assistance.
+                Generate engaging blog posts, articles, and creative content
+                with advanced AI assistance.
               </p>
-            </div>
+            </span>
           </div>
           <div className={styles.feature}>
-            <div>
-              <span>
-                <IoIosSearch />
-              </span>
-              <span>Smart Search</span>
-            </div>
-            <div>
+            <span>
+              <IoIosSearch style={{ color: "green" }} />
+              Smart Discovery
+            </span>
+            <span>
               <p>
-                Find exactly what you need with intelligent search across your
-                entire codebase.
+                Find amazing content and creators with intelligent search across
+                the entire platform.
               </p>
-            </div>
+            </span>
           </div>
           <div className={styles.feature}>
-            <div>
-              <span>
-                <FiGitBranch />
-              </span>
-              <span>Version Control</span>
-            </div>
-            <div>
+            <span>
+              <FiGitBranch style={{ color: "rgb(177, 93, 177)" }} />
+              Social Sharing
+            </span>
+            <span>
               <p>
-                Seamlessly integrate with Git and track changes across your
-                development workflow.
+                Share your thoughts, stories, and experiences with a vibrant
+                community of creators.
               </p>
-            </div>
+            </span>
           </div>
           <div className={styles.feature}>
-            <div>
-              <span>
-                <IoDocumentTextOutline />
-              </span>
-              <span>Documentation Hub</span>
-            </div>
-            <div>
+            <span>
+              <IoDocumentTextOutline style={{ color: "orange" }} />
+              Rich Content Hub
+            </span>
+            <span>
               <p>
-                Automatically generate and maintain documentation for your
-                projects.
+                Create and organize your blog posts, articles, and multimedia
+                content in one place.
               </p>
-            </div>
+            </span>
           </div>
         </div>
       </div>
       <div className={styles.footer}>
         <div className={styles.title}>
-          <p>Powerful Features for Modern Development</p>
+          <p>Ready to Transform Your Creative Journey?</p>
         </div>
         <div className={styles.subtitle}>
           <p>
-            Everything you need to accelerate your development workflow and
-            build better software faster.
+            Join thousands of creators who are already sharing their stories
+            with BlogSpace.
           </p>
         </div>
         <div className={styles.buttons}>
-          <button>
-            <NavLink to="/generation"> Start Generating</NavLink>
+          <span>
+            <NavLink to="/generation">Get started Free</NavLink>
             <FaLongArrowAltRight />
-          </button>
-          <button>View Documentation</button>
+          </span>
+          <p>Learn More</p>
         </div>
       </div>
     </div>

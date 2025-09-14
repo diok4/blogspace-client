@@ -11,6 +11,12 @@
 
 .logo {
   display: flex;
+  align-items: center;
+}
+
+.logo p {
+  font-size: larger;
+  font-weight: 600;
 }
 
 /* .navlinks a {

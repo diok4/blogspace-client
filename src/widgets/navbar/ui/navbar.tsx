@@ -16,7 +16,7 @@ export const NavBar: FC = () => {
           height={40}
           alt="404"
         />
-        <p>DevNoteAI</p>
+        <p>BlogSpace</p>
       </div>
       <div className={styles.navlinks}>
         <NavLink

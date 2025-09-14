@@ -7,9 +7,6 @@ export const SearchInput = () => (
     startElement={<LuSearch />}
     endElement={<Kbd>⌘ K | ctrl + k</Kbd>}
   >
-    <Input
-      style={{ borderRadius: "T7px" }}
-      placeholder="Search repositories, code, and more..."
-    />
+    <Input style={{ borderRadius: "T7px" }} placeholder="Search creator..." />
   </InputGroup>
 );
