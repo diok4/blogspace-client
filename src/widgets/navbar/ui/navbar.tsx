@@ -33,7 +33,7 @@ export const NavBar: FC = () => {
             return isActive ? styles.isActive : undefined;
           }}
         >
-          Generation
+          Post with AI
         </NavLink>
         <NavLink
           to="reels"
