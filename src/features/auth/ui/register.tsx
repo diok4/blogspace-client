@@ -4,6 +4,8 @@ import { useState, type FC } from "react";
 import { registerSchema } from "@/shared/lib/validation";
 import { useRegisterMutation } from "../api/authApi";
 import { AuthToggleLinks } from "@/shared/ui/auth-toggle";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 export const RegisterForm: FC = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +17,8 @@ export const RegisterForm: FC = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [register, { data }] = useRegisterMutation();
 
+  const navigate = useNavigate();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -24,12 +28,25 @@ export const RegisterForm: FC = () => {
     e.preventDefault();
 
     try {
-      await registerSchema.validate(formData);
+      await registerSchema.validate(formData, { abortEarly: false });
       setErrors({});
 
       await register(formData).unwrap();
+      toast.success("Account created successfully!");
+      navigate("profile");
     } catch (err: any) {
-      setErrors(err.message);
+      if (err.name === "ValidationError") {
+        const fieldErrors: Record<string, string> = {};
+        err.inner.forEach((validationError: any) => {
+          if (validationError.path) {
+            fieldErrors[validationError.path] = validationError.message;
+          }
+        });
+        setErrors(fieldErrors);
+        toast.error("Please fix validation errors");
+      } else {
+        toast.error("Server error. Try again!");
+      }
     }
   };
 

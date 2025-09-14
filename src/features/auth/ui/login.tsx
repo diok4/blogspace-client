@@ -5,6 +5,7 @@ import { loginSchema } from "@/shared/lib/validation";
 import { useLoginMutation } from "../api/authApi";
 import { useNavigate } from "react-router";
 import { AuthToggleLinks } from "@/shared/ui/auth-toggle";
+import { toast } from "react-toastify";
 
 export const LoginForm: FC = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,7 @@ export const LoginForm: FC = () => {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [login, { data, isSuccess }] = useLoginMutation();
+  const [login] = useLoginMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -24,21 +25,26 @@ export const LoginForm: FC = () => {
     e.preventDefault();
 
     try {
-      await loginSchema.validate(formData);
-      setErrors({});
+      await loginSchema.validate(formData, { abortEarly: false });
 
       const result = await login(formData).unwrap();
-      navigate("/");
-      console.log("Success", result);
+      toast.success("Login successful!");
+      navigate("/profile");
+      console.log("Success", result, formData);
     } catch (err: any) {
       console.error("Error", err);
-      setErrors(err.message);
+
+      if (err.name === "ValidationError") {
+        toast.error(err.errors.join(", "));
+      } else {
+        toast.error("Invalid email or password");
+      }
     }
   };
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      {isSuccess && <p style={{ color: "green" }}>✅ Успешный вход!</p>}
+      {/* {isSuccess && <p style={{ color: "green" }}>Успешный вход!</p>} */}
       <div className={styles.toggle}>
         <AuthToggleLinks />
       </div>
@@ -69,7 +75,7 @@ export const LoginForm: FC = () => {
             name="password"
             placeholder="Enter your password"
           />
-          {/* <p>{errors.password}</p> */}
+          <p>{errors.password}</p>
         </div>
         <div className={styles.button}>
           <button>Create Account</button>

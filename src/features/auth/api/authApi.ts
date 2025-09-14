@@ -9,7 +9,7 @@ interface IUser {
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/auth/",
+    baseUrl: "https://basic-mern-auth.vercel.app/api/auth/",
     credentials: "include",
   }),
   endpoints: (build) => ({

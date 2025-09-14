@@ -1,0 +1,110 @@
+.container {
+  padding: 30px;
+  border: 1px solid gray;
+  border-radius: 7px;
+  background-color: rgba(128, 128, 128, 0.144);
+}
+
+hr {
+  border: none;
+  height: 0.1px;
+  background-color: rgb(87, 87, 87);
+}
+
+.header {
+  gap: 20px;
+  justify-content: space-around;
+  width: 900px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.footer {
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.footer h3 {
+  font-weight: 700;
+  font-size: x-large;
+}
+
+.footer p {
+  color: rgb(151, 151, 151);
+}
+
+.left p {
+  background-color: rgb(64, 64, 207);
+  color: white;
+  font-weight: 500;
+  padding: 20px;
+  border-radius: 100%;
+}
+
+.username p {
+  color: white !important;
+}
+
+.center {
+  flex: 2;
+  width: 500px;
+  font-weight: 400;
+}
+
+.center div {
+  margin: 5px 0;
+}
+
+.username p {
+  font-size: x-large;
+  font-weight: 700;
+  color: gray;
+}
+
+.gray {
+  color: gray;
+}
+
+.metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.metadata span {
+  display: flex;
+  align-items: center;
+}
+
+.metadata svg {
+  margin: 0 5px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttons a {
+  padding: 7px 50px;
+  border-radius: 7px;
+  background-color: #0066ff;
+}
+
+.buttons p {
+  cursor: pointer;
+  border: 1px solid rgb(54, 54, 54);
+  padding: 7px 50px;
+  border-radius: 7px;
+}
