@@ -4,6 +4,7 @@ interface IUser {
   id: string;
   username: string;
   email: string;
+  userId: string;
 }
 
 export const authApi = createApi({

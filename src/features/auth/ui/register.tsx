@@ -44,6 +44,7 @@ export const RegisterForm: FC = () => {
         });
         setErrors(fieldErrors);
         toast.error("Please fix validation errors");
+        console.log(errors, data);
       } else {
         toast.error("Server error. Try again!");
       }

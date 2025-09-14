@@ -31,6 +31,7 @@ export const LoginForm: FC = () => {
       toast.success("Login successful!");
       navigate("/profile");
       console.log("Success", result, formData);
+      console.log(setErrors);
     } catch (err: any) {
       console.error("Error", err);
 
