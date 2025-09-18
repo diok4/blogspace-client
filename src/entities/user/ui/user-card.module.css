@@ -1,20 +1,21 @@
 .container {
   padding: 30px;
-  border: 1px solid gray;
-  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.062);
+  border-radius: 15px;
   background-color: rgba(128, 128, 128, 0.144);
+  width: 900px;
+  margin: 0 auto;
 }
 
 hr {
   border: none;
   height: 0.1px;
-  background-color: rgb(87, 87, 87);
+  background-color: rgba(255, 255, 255, 0.062);
 }
 
 .header {
   gap: 20px;
   justify-content: space-around;
-  width: 900px;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -23,12 +24,7 @@ hr {
 }
 
 .footer {
-  margin: 30px 0;
-  display: flex;
-  justify-content: space-around;
-}
-
-.footer {
+  margin: 30px 0 0px 0;
   display: flex;
   justify-content: space-around;
   text-align: center;
@@ -48,11 +44,15 @@ hr {
   color: white;
   font-weight: 500;
   padding: 20px;
-  border-radius: 100%;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
 }
 
-.username p {
-  color: white !important;
+.username {
+  color: white;
+  font-size: x-large;
+  font-weight: 600;
 }
 
 .center {
@@ -94,12 +94,14 @@ hr {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-weight: 500;
+  font-size: small;
 }
 
 .buttons a {
   padding: 7px 50px;
   border-radius: 7px;
-  background-color: #0066ff;
+  background-color: #3134ce;
 }
 
 .buttons p {

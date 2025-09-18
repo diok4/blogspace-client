@@ -1,13 +1,14 @@
 .container {
   background-color: #161b22;
   padding: 25px;
-  border: 2px solid rgba(245, 245, 245, 0.091);
+  border: 1px solid rgba(255, 255, 255, 0.062);
   border-radius: 10px;
   width: 400px;
   height: 100%;
 }
 
 .texts {
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -20,6 +21,11 @@
 
 .subTitle {
   color: gray;
+  margin-top: 30px;
+}
+
+.form {
+  margin-top: 20px;
 }
 
 label {
@@ -42,7 +48,7 @@ label {
 }
 
 input:focus {
-  border: 1px solid #0066ff;
+  border: 1px solid gray;
   outline: none;
 }
 
@@ -50,7 +56,7 @@ input:focus {
   user-select: none;
   width: 100%;
   margin-top: 15px;
-  background-color: #0066ff;
+  background-color: #3134ce;
   border: none;
   border-radius: 7px;
   padding: 10px 15px;
@@ -62,7 +68,7 @@ input:focus {
 }
 
 .button button:hover {
-  background-color: #0066ffb6;
+  background-color: rgba(58, 58, 58, 0.466);
 }
 
 .agreement {
@@ -74,10 +80,10 @@ input:focus {
 
 .agreement span {
   user-select: none;
-  color: #0066ff;
+  color: white;
   cursor: pointer;
 }
 
 .agreement span:hover {
-  color: white;
+  color: #0066ff;
 }

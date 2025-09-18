@@ -79,7 +79,7 @@ export const LoginForm: FC = () => {
           <p>{errors.password}</p>
         </div>
         <div className={styles.button}>
-          <button>Create Account</button>
+          <button>Login</button>
           {/* {errors && <p style={{ color: "red" }}>{errors.message}</p>} */}
         </div>
 

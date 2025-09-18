@@ -28,7 +28,7 @@ export const authApi = createApi({
         body,
       }),
     }),
-    logout: build.mutation({
+    logout: build.mutation<void, void>({
       query: () => ({
         url: "logout",
         method: "POST",

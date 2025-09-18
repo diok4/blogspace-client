@@ -5,17 +5,17 @@ import { SearchInput } from "@/shared/ui/search-input";
 import { DropdownMenu } from "@/shared/ui/dropdown-menu";
 import { IoNotifications } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
+import { useMeMutation, useLogoutMutation } from "@/features/auth/api/authApi";
+import { LuPenTool } from "react-icons/lu";
 
 export const NavBar: FC = () => {
+  const me = useMeMutation();
+  const [logout] = useLogoutMutation();
+
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
-        <img
-          src="https://i.postimg.cc/zHrHY0mG/image-2025-09-13-15-29-56.png"
-          width={40}
-          height={40}
-          alt="404"
-        />
+        <LuPenTool />
         <p>BlogSpace</p>
       </div>
       <div className={styles.navlinks}>
@@ -27,14 +27,16 @@ export const NavBar: FC = () => {
         >
           Home
         </NavLink>
-        <NavLink
-          to="generation"
-          className={({ isActive }) => {
-            return isActive ? styles.isActive : undefined;
-          }}
-        >
-          Post with AI
-        </NavLink>
+        {me ? (
+          <NavLink
+            to="generation"
+            className={({ isActive }) => {
+              return isActive ? styles.isActive : undefined;
+            }}
+          >
+            Post with AI
+          </NavLink>
+        ) : undefined}
         <NavLink
           to="reels"
           className={({ isActive }) => {
@@ -48,29 +50,38 @@ export const NavBar: FC = () => {
         <SearchInput />
       </div>
       <div className={styles.buttons}>
-        <div className={styles.notifications}>
-          <DropdownMenu
-            triggerLabel={<IoNotifications />}
-            items={[
-              { value: "news1", label: "New version released", to: "/" },
-              { value: "news2", label: "new user ip: 1.1.1.1'", to: "/" },
-            ]}
-          />
-        </div>
-        <div className={styles.profile}>
-          <DropdownMenu
-            triggerLabel={<FaUserCircle />}
-            items={[
-              { value: "profile", label: "Profile", to: "profile" },
-              { value: "settings", label: "Settings", to: "" },
-              {
-                value: "logout",
-                label: "Logout",
-                onClick: () => console.log("logout"),
-              },
-            ]}
-          />
-        </div>
+        {me ? (
+          <>
+            <div className={styles.notifications}>
+              <DropdownMenu
+                triggerLabel={<IoNotifications />}
+                items={[
+                  { value: "news1", label: "New version released", to: "/" },
+                  { value: "news2", label: "new user ip: 1.1.1.1'", to: "/" },
+                ]}
+              />
+            </div>
+            <div className={styles.profile}>
+              <DropdownMenu
+                triggerLabel={<FaUserCircle />}
+                items={[
+                  { value: "profile", label: "Profile", to: "profile" },
+                  { value: "settings", label: "Settings", to: "" },
+                  {
+                    value: "logout",
+                    label: "Logout",
+                    onClick: () => logout(),
+                  },
+                ]}
+              />
+            </div>
+          </>
+        ) : (
+          <div className={styles.auth}>
+            <NavLink to="auth/login">Sign In</NavLink>
+            <NavLink to="auth/register">Sign Up</NavLink>
+          </div>
+        )}
       </div>
     </div>
   );

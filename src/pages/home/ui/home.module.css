@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(128, 128, 128, 0.192);
+  background-color: rgba(58, 58, 58, 0.466);
   margin: 0 auto;
   width: 300px;
   border-radius: 7px;
@@ -63,7 +63,7 @@
 }
 
 .buttons span {
-  background-color: #0066ff;
+  background-color: #3134ce;
   padding: 10px;
   border-radius: 7px;
   font-weight: 500;
@@ -96,7 +96,7 @@
   height: 45px;
   margin: 0 auto;
   background-color: #0066ff27;
-  color: #0066ff;
+  color: #0c5fdb;
 }
 
 .dataSubtitle {
@@ -123,8 +123,8 @@
   justify-content: center;
   width: 500px;
   height: 100%;
-  background-color: rgba(88, 88, 88, 0.096);
-  border: 1px solid rgba(95, 92, 255, 0.219);
+  background-color: rgba(58, 58, 58, 0.178);
+  border: 1px solid rgba(255, 255, 255, 0.062);
   border-radius: 7px;
   padding: 10px;
 }

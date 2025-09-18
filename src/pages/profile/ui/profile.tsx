@@ -5,7 +5,7 @@ import { UserCard } from "@/entities/user/ui/user-card";
 export const ProfilePage: FC = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.info}>
+      <div className={styles.user}>
         <UserCard />
       </div>
       <div className={styles.posts}></div>
