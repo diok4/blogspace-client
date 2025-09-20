@@ -13,6 +13,7 @@ export const authApi = createApi({
     baseUrl: "https://basic-mern-auth.vercel.app/api/auth/",
     credentials: "include",
   }),
+  tagTypes: ["User"],
   endpoints: (build) => ({
     register: build.mutation({
       query: (body) => ({
@@ -33,13 +34,13 @@ export const authApi = createApi({
         url: "logout",
         method: "POST",
       }),
+      invalidatesTags: ["User"],
     }),
-    me: build.mutation<IUser, void>({
-      query: (body) => ({
+    me: build.query<IUser, void>({
+      query: () => ({
         url: "is-auth",
-        method: "POST",
-        body,
       }),
+      providesTags: ["User"],
     }),
   }),
 });
@@ -48,5 +49,5 @@ export const {
   useRegisterMutation,
   useLoginMutation,
   useLogoutMutation,
-  useMeMutation,
+  useMeQuery,
 } = authApi;

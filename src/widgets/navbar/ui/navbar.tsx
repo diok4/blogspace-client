@@ -1,16 +1,26 @@
 import type { FC } from "react";
 import styles from "./navbar.module.css";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { SearchInput } from "@/shared/ui/search-input";
 import { DropdownMenu } from "@/shared/ui/dropdown-menu";
 import { IoNotifications } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
-import { useMeMutation, useLogoutMutation } from "@/features/auth/api/authApi";
+import { useMeQuery, useLogoutMutation } from "@/features/auth/api/authApi";
 import { LuPenTool } from "react-icons/lu";
+import { useDispatch } from "react-redux";
+import { authApi } from "@/features/auth/api/authApi";
 
 export const NavBar: FC = () => {
-  const me = useMeMutation();
+  const { data: me } = useMeQuery();
   const [logout] = useLogoutMutation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    await logout().unwrap();
+    navigate("/");
+    dispatch(authApi.util.resetApiState());
+  };
 
   return (
     <div className={styles.container}>
@@ -70,7 +80,7 @@ export const NavBar: FC = () => {
                   {
                     value: "logout",
                     label: "Logout",
-                    onClick: () => logout(),
+                    onClick: () => handleLogout(),
                   },
                 ]}
               />
