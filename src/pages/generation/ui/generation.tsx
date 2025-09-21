@@ -1,4 +1,4 @@
-import { CreatePost } from "@/features/post/ui/create-post";
+import { CreatePost } from "@/features/post/ui/post";
 import type { FC } from "react";
 // import styles from "./generation.module.css";
 

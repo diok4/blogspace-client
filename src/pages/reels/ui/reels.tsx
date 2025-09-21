@@ -1,10 +1,10 @@
-import { GetPosts } from "@/entities/post/getPost";
+import { GetPosts } from "@/entities/post";
 import type { FC } from "react";
-//import styles from './ReelsPage.module.css'
+import styles from "./reels.module.css";
 
 export const ReelsPage: FC = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <GetPosts />
     </div>
   );

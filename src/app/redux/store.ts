@@ -3,7 +3,7 @@ import { authApi } from "@/features/auth/api/authApi";
 import { configureStore } from "@reduxjs/toolkit";
 import { userApi } from "@/entities/user/api/userApi";
 import { postApi } from "@/features/post/api/postApi";
-import { postsApi } from "@/entities/post/postsApi";
+import { postsApi } from "@/entities/post/api/postApi";
 
 export const store = configureStore({
   reducer: {
