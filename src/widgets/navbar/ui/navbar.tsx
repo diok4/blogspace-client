@@ -44,7 +44,7 @@ export const NavBar: FC = () => {
               return isActive ? styles.isActive : undefined;
             }}
           >
-            Post with AI
+            Post
           </NavLink>
         ) : undefined}
         <NavLink
